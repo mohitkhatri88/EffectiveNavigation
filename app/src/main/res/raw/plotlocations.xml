@@ -1,0 +1,44 @@
+<PlotLocations>
+    <PlotPoint>
+        <Id>0</Id>
+        <Lat>33.7763024</Lat>
+        <Lng>-84.38927960000001</Lng>
+        <Loc>GT Hotel and Conference Center</Loc>
+        <Category>Hotel</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>1</Id>
+        <Lat>33.777565</Lat>
+        <Lng>-84.38482699999997</Lng>
+        <Loc>CVS Pharmacy</Loc>
+        <Category>Pharmacy</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>2</Id>
+        <Lat>33.7800459</Lat>
+        <Lng>-84.38757299999997</Lng>
+        <Loc>Publix Grocery</Loc>
+        <Category>Grocery</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>3</Id>
+        <Lat>33.7790261</Lat>
+        <Lng>-84.3845101</Lng>
+        <Loc>Vortex</Loc>
+        <Category>Burger</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>4</Id>
+        <Lat>33.7778487</Lat>
+        <Lng>-84.38406839999999</Lng>
+        <Loc>BiltMore</Loc>
+        <Category>Midtown</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>5</Id>
+        <Lat>33.7769208</Lat>
+        <Lng>-84.39591180000002</Lng>
+        <Loc>KLAUS Building</Loc>
+        <Category>Start</Category>
+    </PlotPoint>
+</PlotLocations>

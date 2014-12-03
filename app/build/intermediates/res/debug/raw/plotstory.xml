@@ -1,0 +1,32 @@
+<PlotStory>
+    <PlotPoint>
+        <Id>0</Id>
+        <Objective>Go meet George at | Hotel. He has called you for a game.</Objective>
+        <Category>Hotel</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>1</Id>
+        <Objective>Oh no, george is dead. You find a wine bottle and some pills mixed into it. You cant find the bottle of pills. Police say that it was a suicide, but u are not convinced. You decide to check out the pharmacy | to see if you can find out when george took them pills.</Objective>
+        <Category>Pharmacy</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>2</Id>
+        <Objective>Pharmacy person says a guy who comes often took them pills, Goes by the name Phil. Has seen him getting groceries at |.</Objective>
+        <Category>Grocery</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>3</Id>
+        <Objective> He works for the | place called | . He seems suspicious. Better check him out.</Objective>
+        <Category>Burger</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>4</Id>
+        <Objective>The restaurant manager says that George had visited their restaurant last time. He didnt like service and told phil so. Phil was under stress and takes stress medication. He shouted at george and threatened him. He lives at |.</Objective>
+        <Category>Midtown</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>5</Id>
+        <Objective>You pay him a visit and find the pill bottle there. You call the police and he is arrested as the pills are rare. Return to | where it all began. The killer has been caught.</Objective>
+        <Category>None</Category>
+    </PlotPoint>
+</PlotStory>
