@@ -39,6 +39,13 @@
         <Lat>33.7769208</Lat>
         <Lng>-84.39591180000002</Lng>
         <Loc>KLAUS Building</Loc>
+        <Category>Computer</Category>
+    </PlotPoint>
+    <PlotPoint>
+        <Id>6</Id>
+        <Lat>33.7778487</Lat>
+        <Lng>-84.39591180000002</Lng>
+        <Loc>END OF ALL</Loc>
         <Category>Start</Category>
     </PlotPoint>
 </PlotLocations>

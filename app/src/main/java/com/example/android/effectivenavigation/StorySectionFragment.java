@@ -1,5 +1,6 @@
 package com.example.android.effectivenavigation;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -38,6 +39,18 @@ public class StorySectionFragment extends Fragment {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = 0;
     Map<Integer, PlotPointNode> storyLine = new HashMap<Integer, PlotPointNode>();
+
+    LaunchpadSectionFragment.ChangeViewFromFragment mListener;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (LaunchpadSectionFragment.ChangeViewFromFragment) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnArticleSelectedListener");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -175,17 +188,21 @@ public class StorySectionFragment extends Fragment {
     }
 
     public void updateArticleView(int position) {
-        if (mCurrentPosition >= 3) {
+        Log.d("Story size as of you:", String.valueOf(storyLine.size()));
+        if (mCurrentPosition >= storyLine.size()-1) {
             mCurrentPosition = -1;
+            Log.d("Story Section Fragment", String.valueOf(mCurrentPosition));
+            mListener.changeView(0);
+        } else {
+            Log.d("Story Position in updateArticleView", String.valueOf(mCurrentPosition));
+            TextView article = (TextView) getActivity().findViewById(R.id.article);
+            mCurrentPosition = mCurrentPosition + 1;
+            PlotPointNode node = this.storyLine.get(mCurrentPosition);
+            article.setText(node.getObjective());
+            //mCurrentPosition = position+1;
+            String msg = "Story position after updating the screen:" + String.valueOf(mCurrentPosition);
+            Log.d("Story Section Fragment", msg);
         }
-        Log.d("Story Position in updateArticleView", String.valueOf(mCurrentPosition));
-        TextView article = (TextView) getActivity().findViewById(R.id.article);
-        mCurrentPosition = mCurrentPosition + 1;
-        PlotPointNode node= this.storyLine.get(mCurrentPosition);
-        article.setText(node.getObjective());
-        //mCurrentPosition = position+1;
-        String msg = "Story position after updating the screen:" + String.valueOf(mCurrentPosition);
-        Log.d("Story Section Fragment", msg);
     }
 
     /*@Override

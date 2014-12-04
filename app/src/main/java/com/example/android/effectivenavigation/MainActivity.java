@@ -43,7 +43,7 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.model.LatLng;
 
 public class MainActivity extends FragmentActivity
-        implements ActionBar.TabListener {
+        implements ActionBar.TabListener, LaunchpadSectionFragment.ChangeViewFromFragment {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -106,6 +106,11 @@ public class MainActivity extends FragmentActivity
         // This is a hack to get the geofences initialized as soon as we start the app
         mViewPager.setCurrentItem(2, true);
         mViewPager.setCurrentItem(0, true);
+    }
+
+    @Override
+    public void changeView(int item) {
+        mViewPager.setCurrentItem(item, true);
     }
 
     @Override
