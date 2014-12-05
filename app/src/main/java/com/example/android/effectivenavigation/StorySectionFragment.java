@@ -76,14 +76,14 @@ public class StorySectionFragment extends Fragment {
         //}
 
         // Inflate the layout for this fragment
+        getStoryLine();
         return rootView;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getStoryLine();
+        //getStoryLine();
     }
 
     public void getStoryLine() {
@@ -91,10 +91,11 @@ public class StorySectionFragment extends Fragment {
         // If the file name doesn't exist, better to get out of the fragment and go to the main fragment.
         //Get the value for the next part.
         //Read the XML from the raw folder, and then add the points to the story.
-        InputStream plotLocations = this.getActivity().getResources().openRawResource(R.raw.plotlocations);
-        InputStream storyLines = this.getActivity().getResources().openRawResource(R.raw.plotstory);
+        //InputStream plotLocations = this.getActivity().getResources().openRawResource(R.raw.plotlocations);
         XMLParser parserLocations = new XMLParser();
         XMLParser parserStory = new XMLParser();
+        InputStream plotLocations = parserLocations.readXmlFromFile(this.getActivity(), "currentStoryBlah.xml");
+        InputStream storyLines = this.getActivity().getResources().openRawResource(R.raw.plotstory);
 
         //Convert the input stream into a string and then get the dom elements
         String locations = parserLocations.convertStreamToString(plotLocations);
@@ -117,17 +118,22 @@ public class StorySectionFragment extends Fragment {
             String objective = parserLocations.getValue(Story, this.getActivity().getString(R.string.plot_objective));
             Log.d("Story Section Fragment", "Plot Id :" + plotId + "Lat:" + Lat + "Lng :" + Lng);
             Log.d("Story Section Fragment", "Story Objective :" + objective);
+            Log.d("Story Section Location", "Story Location :" + location);
             PlotPointNode node = new PlotPointNode(Lat, Lng, objective, category, location);
             this.storyLine.put(i,node);
         }
 
 
-        parserLocations.writeXmlToFile(locations, this.getActivity(), "currentStoryBlah.xml");
+        //parserLocations.writeXmlToFile(locations, this.getActivity(), "currentStoryBlah.xml");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
+        //if (this.storyLine.isEmpty()) {
+        getStoryLine();
+        //}*/
 
         //Retrieving the saved state of the story. This is where we will take it off from.
         //SharedPreferences settings =  this.getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -199,6 +205,7 @@ public class StorySectionFragment extends Fragment {
             PlotPointNode node = this.storyLine.get(mCurrentPosition+1);
             article.setText(node.getObjective());
             //mCurrentPosition = position+1;
+            Log.d("Story Goal at this point", node.getLocation());
             String msg = "Story position after updating the screen:" + String.valueOf(mCurrentPosition);
             Log.d("Story Section Fragment", msg);
             if (shouldUpdate) {

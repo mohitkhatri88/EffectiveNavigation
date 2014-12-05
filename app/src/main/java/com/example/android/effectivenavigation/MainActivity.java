@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -63,6 +64,11 @@ public class MainActivity extends FragmentActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.

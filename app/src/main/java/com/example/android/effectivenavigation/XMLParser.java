@@ -5,6 +5,7 @@ package com.example.android.effectivenavigation;
  */
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.apache.http.client.ClientProtocolException;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.net.URLDecoder;
 
 import org.apache.http.HttpEntity;
@@ -47,23 +49,31 @@ public class XMLParser {
     public String getXmlFromUrl(String url) {
         String xml = null;
 
+        Log.d("XMLParser", url);
         try {
             // defaultHttpClient
             DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(url);
+            //HttpPost httpPost = new HttpPost(url);
+            HttpGet httpPost = new HttpGet(url);
 
             HttpResponse httpResponse = httpClient.execute(httpPost);
             HttpEntity httpEntity = httpResponse.getEntity();
             xml = EntityUtils.toString(httpEntity);
-
         } catch (UnsupportedEncodingException e) {
-            Log.e("XMLParser", e.getMessage());
+            Log.e("XMLParser", "Problem 1");
         } catch (ClientProtocolException e) {
-            Log.e("XMLParser", e.getMessage());
+            Log.e("XMLParser", "Problem 2");
         } catch (IOException e) {
-            Log.e("XMLParser", e.getMessage());
+            Log.e("XMLParser", "Problem 3");
+        } catch (Exception e) {
+            Log.e("XMLParser", e.toString());
         }
         // return XML
+        if (xml == null) {
+            Log.d("XMLParser", "STRING RETURNED IS NULL.");
+        } else {
+            Log.d("XMLParser", xml);
+        }
         return xml;
     }
 
