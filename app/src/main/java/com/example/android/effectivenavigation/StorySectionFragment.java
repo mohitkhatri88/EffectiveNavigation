@@ -65,7 +65,7 @@ public class StorySectionFragment extends Fragment {
                         //Intent intent = new Intent(getActivity(), CollectionDemoActivity.class);
                         //startActivity(intent);
                         //mCurrentPosition += 1;
-                        updateArticleView(mCurrentPosition);
+                        updateArticleView(mCurrentPosition, true);
                     }
                 });
         // If activity recreated (such as from screen rotate), restore
@@ -184,24 +184,26 @@ public class StorySectionFragment extends Fragment {
         this.mCurrentPosition = settings.getInt("currentNodeStory", -1);
         String msg = "Story Position in Onstart:" + String.valueOf(mCurrentPosition);
         Log.d("Story Section Fragment", msg);
-        updateArticleView(mCurrentPosition);
+        updateArticleView(mCurrentPosition, false);
     }
 
-    public void updateArticleView(int position) {
+    public void updateArticleView(int position, boolean shouldUpdate) {
         Log.d("Story size as of you:", String.valueOf(storyLine.size()));
         if (mCurrentPosition >= storyLine.size()-1) {
             mCurrentPosition = -1;
             Log.d("Story Section Fragment", String.valueOf(mCurrentPosition));
             mListener.changeView(0);
         } else {
-            Log.d("Story Position in updateArticleView", String.valueOf(mCurrentPosition));
+            Log.d("Story Position in updateArticleView", String.valueOf(mCurrentPosition+1));
             TextView article = (TextView) getActivity().findViewById(R.id.article);
-            mCurrentPosition = mCurrentPosition + 1;
-            PlotPointNode node = this.storyLine.get(mCurrentPosition);
+            PlotPointNode node = this.storyLine.get(mCurrentPosition+1);
             article.setText(node.getObjective());
             //mCurrentPosition = position+1;
             String msg = "Story position after updating the screen:" + String.valueOf(mCurrentPosition);
             Log.d("Story Section Fragment", msg);
+            if (shouldUpdate) {
+                mCurrentPosition = mCurrentPosition + 1;
+            }
         }
     }
 

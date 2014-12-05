@@ -27,12 +27,12 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Resume Previous Story."/>
+            android:text="@string/demo_collection"/>
 
         <Button android:id="@+id/demo_external_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start a new Story." />
+            android:text="@string/demo_external_activity" />
 
     </LinearLayout>
 

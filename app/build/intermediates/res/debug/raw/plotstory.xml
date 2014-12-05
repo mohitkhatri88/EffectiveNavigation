@@ -26,12 +26,7 @@
     </PlotPoint>
     <PlotPoint>
         <Id>5</Id>
-        <Objective>You pay him a visit and find the pill bottle there. You call the police and he is arrested as the pills are rare. Return to | where it all began. The killer has been caught. Go to your </Objective>
-        <Category>None</Category>
-    </PlotPoint>
-    <PlotPoint>
-        <Id>6</Id>
-        <Objective>You have reached the starting point. Please start a new Game.</Objective>
+        <Objective>You pay him a visit and find the pill bottle there. You call the police and he is arrested as the pills are rare. Return to | where it all began. The killer has been caught.</Objective>
         <Category>None</Category>
     </PlotPoint>
 </PlotStory>
